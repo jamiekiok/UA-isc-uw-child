@@ -8,7 +8,7 @@ Hello! This is the custom theme of *University Advancement's intranet*, built up
 
 ### UA Child Theme
 - - - 
-[Jamie Walker](https://github.com/jamiekiok)
+[jamiekiok](https://github.com/jamiekiok)
 
 ### UW 2014 Theme Creators 
 - - - 

@@ -1,72 +1,62 @@
-<?php
-/**
- * Default page template
- *
- * @package isc-uw-child
- * @author UW-IT AXDD
- */
+<?php get_header(); 
+   $sidebar = get_post_meta($post->ID, "sidebar"); ?>
 
-	get_header();
-	$url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-	$sidebar = get_post_meta( $post->ID, 'sidebar' );
-?>
-<div role="main">
+<?php get_template_part( 'header', 'image' ); ?>
 
-	<?php
-		uw_site_title();
-		get_template_part( 'menu', 'mobile' );
-		the_page_header();
-	?>
+<div class="container uw-body">
 
-	<div class="container uw-body">
+  <div class="row">
 
-		<div class="row">
+    <div class="col-md-<?php echo ((!isset($sidebar[0]) || $sidebar[0]!="on") ? "8" : "12" ) ?> uw-content" role='main'>
 
-			<div class="uw-content col-md-9">
+      <?php uw_site_title(); ?>
 
-				<div id='main_content' class="uw-body-copy" tabindex="-1">
+      <?php get_template_part( 'menu', 'mobile' ); ?>
 
-					<?php
-					log_to_console( 'page.php' );
-					
-					// Start the Loop.
-					while ( have_posts() ){
-						the_post();
-						the_content();
+      <?php get_template_part( 'breadcrumbs' ); ?>
 
-						// If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) {
-							  comments_template();
-						}
 
-					}
-					?>
+      <div id='main_content' class="uw-body-copy" tabindex="-1">
 
-				</div>
+      
 
-			</div>
-			
-			
-			<?php
-				$show_right_sidebar = get_post_meta( $post->ID, 'show_right_sidebar',true);
-				$right_side_bar = '';
-				$side_bar_title = get_post_meta( $post->ID, 'sidebar_title',true);
+        <?php
+          // Start the Loop.
+          while ( have_posts() ) : the_post();
 
-				if($show_right_sidebar == 'Yes'){
-				$right_side_bar = get_post_meta( $post->ID, 'custom_html',true);
-				echo '<div class="col-md-3 isc-dark-grey default-page-right-sidebar">';
-					if(isset($side_bar_title)){
-						echo '<h2 class="isc-right-sidebar-title">'.$side_bar_title.'</h2>';
-					}
-					echo $right_side_bar;
-				echo '</div>';
-				}
-			?>
-			
+            /*
+             * Include the post format-specific template for the content. If you want to
+             * use this in a child theme, then include a file called called content-___.php
+             * (where ___ is the post format) and that will be used instead.
+             */
+            get_template_part( 'content', 'page' );
 
-		</div>
 
-	</div>
+
+
+            // If comments are open or we have at least one comment, load up the comment template.
+            if ( comments_open() || get_comments_number() ) {
+              comments_template();
+            }
+
+          endwhile;
+        ?>
+
+
+
+      </div>
+
+    </div>
+
+  
+          <div id="sidebar"><?php 
+      if(!isset($sidebar[0]) || $sidebar[0]!="on"){
+        get_sidebar();
+      }
+    ?></div>
+
+
+  </div>
 
 </div>
 

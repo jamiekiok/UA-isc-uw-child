@@ -1,4 +1,5 @@
-.DS_Store
-.sass-cache
 node_modules
-isc-styles.css.map
+*.swp
+*.swo
+*.DS_Store
+assets/fonts/heron.*

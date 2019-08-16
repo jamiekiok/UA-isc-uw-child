@@ -1,13 +1,14 @@
 {
-  "name": "isc-uw-child",
-  "version": "0.0.1",
+  "name": "uw",
+  "version": "0.1.0",
   "devDependencies": {
+    "clean-css": "~2.2.7",
     "grunt": "*",
-    "grunt-changed": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-sass": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "*",
-    "grunt-phpcs": "*",
-    "jshint": "*"
+    "grunt-notify": "*"
   }
 }

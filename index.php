@@ -1,58 +1,49 @@
-<?php
-/**
- * Fall back template if one is not specified
- * and single.php does not exist
- *
- * @package isc-uw-child
- * @author UW-IT AXDD
- */
+<?php if(function_exists('get_header')) { get_header(); } ?>
 
-get_header();
-	  $url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-	  $sidebar = get_post_meta( $post->ID, 'sidebar' );   ?>
+<?php if(function_exists('get_template_part')) { get_template_part( 'header', 'image' ); } ?>
 
-<div role="main">
+<div class="container uw-body">
 
-	<?php uw_site_title(); ?>
-	<?php get_template_part( 'menu', 'mobile' ); ?>
+  <div class="row">
 
-	<div class="container uw-body">
+    <div <?php if(function_exists('uw_content_class')){uw_content_class();} ?> role='main'>
 
-		<div class="row">
-			<div class="col-md-12">
-				<?php get_template_part( 'breadcrumbs' ); ?>
-			</div>
-		</div>
+      <?php uw_site_title(); ?>
 
-		<div class="row">
+      <?php get_template_part('menu', 'mobile'); ?>
 
-			<div class="uw-content col-md-9">
+      <?php get_template_part( 'breadcrumbs' ); ?>
 
-				<div id='main_content' class="uw-body-copy" tabindex="-1">
+      <div id='main_content' class="uw-body-copy" tabindex="-1">
 
-					<?php log_to_console( 'index.php' ) ?>
+  			<?php
+  				// Start the Loop.
+  				while ( have_posts() ) : the_post();
 
-					<h1><?php echo get_the_title( get_option( 'page_for_posts', true ) );?></h1>
+  					/*
+  					 * Include the post format-specific template for the content. If you want to
+  					 * use this in a child theme, then include a file called called content-___.php
+  					 * (where ___ is the post format) and that will be used instead.
+  					 */
+  					get_template_part( 'content', get_post_format() );
 
-					<?php while ( have_posts() ) : the_post(); ?>
+  					// If comments are open or we have at least one comment, load up the comment template.
+  					if ( comments_open() || get_comments_number() ) {
+  				        comments_template();
+  					}
 
-						<h2><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title() ?></a></h2>
-						<div class="update-date"><?php echo get_the_date() ?> </div>
-						<div class='post-content'><?php the_excerpt() ?></div>
+  				endwhile;
+  			?>
 
-					<?php endwhile ?>
+            <span class="next-page"><?php next_posts_link( 'Next page', '' ); ?></span>
 
-                    <!-- pagination functions -->
-                    <div class="nav-previous alignleft"><?php previous_posts_link( 'Previous' ); ?></div>
-                    <div class="nav-next alignright"><?php next_posts_link( 'Next' ); ?></div>
+      </div>
 
-				</div>
+    </div>
 
-			</div>
+    <?php get_sidebar() ?>
 
-		</div>
-
-	</div>
+  </div>
 
 </div>
 

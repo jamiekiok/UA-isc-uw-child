@@ -9,7 +9,6 @@
  * @global $post
  * @package isc-uw-child
  */
-
 if ( ! function_exists( 'isc_front_get_quicklinks' ) ) :
 	/**
 	 * Displays the quicklinks by querying the metadata of

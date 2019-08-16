@@ -1,0 +1,41 @@
+/***************
+ *  ua staff directory 
+ *  ***************/
+
+
+	p.filter-table input {
+		padding: 0;
+		width:150px!important;
+		height:25px;
+	}
+	
+table#ua-staff-directory th {
+	background-color: #4b2e83;
+    color: #ffffff;
+}
+table#ua-staff-directory thead tr .header {
+	background-image: url("http://depts.washington.edu/uwadv/wp-content/themes/uw-2014-master/js/tablesorter/images/tablesorter-bg.gif");
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+
+
+table#ua-staff-directory thead tr .headerSortUp {
+	background-image: url("http://depts.washington.edu/uwadv/wp-content/themes/uw-2014-master/js/tablesorter/images/tablesorter-asc.gif");
+}
+table#ua-staff-directory thead tr .headerSortDown {
+	background-image: url("http://depts.washington.edu/uwadv/wp-content/themes/uw-2014-master/js/tablesorter/images/tablesorter-desc.gif");
+}	
+
+#ua-staff-directory-unit-select-container {
+	position: relative;
+	top: 28px;
+	left: 215px;
+}
+
+#ua-staff-directory-unit-select-container #filter-or {
+	display:inline-block;
+	margin-right:10px;	
+}

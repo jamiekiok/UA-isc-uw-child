@@ -1,14 +1,15 @@
 <?php get_header(); ?>
+
+<?php get_template_part( 'header', 'image' ); ?>
 <div class="container uw-body">
 
   <div class="row">
 
-    <div class="uw-content" role='main'>
+    <div class="col-md-8 uw-content" role='main'>
 
       <?php uw_site_title(); ?>
 
       <div class="uw-body-copy">
-
 
         <?php
           // Start the Loop.
@@ -19,15 +20,8 @@
              * use this in a child theme, then include a file called called content-___.php
              * (where ___ is the post format) and that will be used instead.
              */
-            $type = get_post_mime_type(get_the_ID());
+            get_template_part( 'content', 'pdf' );
 
-            if($type === 'application/pdf')
-             {
-              get_template_part( 'content', 'pdf' );
-            }
-            else {
-              get_template_part( 'content', 'doc' );
-            }
             // If comments are open or we have at least one comment, load up the comment template.
             if ( comments_open() || get_comments_number() ) {
               comments_template();

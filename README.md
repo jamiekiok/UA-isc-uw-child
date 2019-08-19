@@ -6,10 +6,6 @@ Hello! This is the custom theme of *University Advancement's intranet*, built up
 
 ## Credit 
 
-### UA Child Theme
-- - - 
-[jamiekiok](https://github.com/jamiekiok)
-
 ### UW 2014 Theme Creators 
 - - - 
 [Dane Odekirk](https://github.com/daneodekirk)  
@@ -23,6 +19,10 @@ Hello! This is the custom theme of *University Advancement's intranet*, built up
 ## ISC Child Theme Creators
 UW-IT AXDD 
 Integrated Service Center 
+
+### UA Child Theme
+- - - 
+[jamiekiok](https://github.com/jamiekiok)
 
 ### License
 - - - 

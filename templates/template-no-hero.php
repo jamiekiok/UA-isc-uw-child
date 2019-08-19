@@ -25,8 +25,8 @@ $buttonlink = get_post_meta( $post->ID, 'buttonlink' );   ?>
 		  <div class="container">
 			<div class="row">
 				<!--EDITED OUT 8.15: <div class="col-md-4 col-md-offset-8">-->
-				<!-- Div below makes title smaller and left-aligned -->
-				<div class="col-xs-5">
+				<!-- Div below makes title larger and left-aligned -->
+				<div class="col-md-12">
 					<div class="isc-homepage-shortcuts hero-header-container">
 
 						<h1 class="isc-homepage-title"><?php the_title(); ?></h1>
